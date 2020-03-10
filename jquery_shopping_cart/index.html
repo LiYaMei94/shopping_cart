@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<style type="text/css">
+			.container {
+				padding: 40px;
+				box-sizing: border-box;
+			}
+			
+			.all_check_wrap {
+				width: 100%;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: left;
+			}
+			
+			.all_check_wrap .checkbox_label {
+				margin-right: 5px;
+				font-size: 16px;
+				vertical-align: middle;
+			}
+			
+			input[type="checkbox" i] {
+				width: 15px;
+				height: 15px;
+				vertical-align: middle;
+			}
+			.item_wrap{
+				width:200px ;
+				height: 200px;
+				float: left;
+				background-color: #fff;
+				margin-right: 10px;
+				overflow: hidden;
+				position: relative;
+			}
+			.item_wrap img{
+				width: 100%;
+				height: auto;
+			}
+			.item_wrap .item_check{
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<section class="all_check_wrap">
+				 <label for="all_check" class="checkbox_label">全选</label>
+				 <input id="all_check"  type="checkbox">
+			</section>
+			<section class="img_check_wrap">
+				<div class="item_wrap">
+					<img src="../images/dingdong1.jpg" alt="">
+					<input class="item_check" type="checkbox" name="" id="check0" value="" />
+				</div>
+				<div class="item_wrap">
+					<img src="../images/dingdong2.jpg" alt="">
+					<input class="item_check" type="checkbox" name="" id="check1" value="" />
+				</div>
+				<div class="item_wrap">
+					<img src="../images/dingdong3.jpg" alt="">
+					<input class="item_check" type="checkbox" name="" id="check2" value="" />
+				</div>
+			</section>
+		</div>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript">
+			// 全选
+			var all_check=$('#all_check');
+			// 所以单选
+			var item_check_arr=$('.item_check');
+			// 全选绑定点击事件
+			all_check.bind('click',check_fun);
+			
+			// 每个选择绑定点击事件
+			for(var i=0;i<item_check_arr.length;i++){
+				$('#check'+i).bind('click',check_fun);
+			}
+			
+			// 选择函数
+			function check_fun(){
+				if(all_check[0]===this){//点击的是全选
+					for(var i=0;i<item_check_arr.length;i++){
+						$("#check"+i).prop('checked',all_check.prop('checked'));
+						// $("#check"+i).prop('checked',all_check.is(':checked'));
+					}
+					return ;
+				}else{//点击的是每个选择input
+					for(var i=0;i<item_check_arr.length;i++){
+						var check_arr=$("#check"+i).prop('checked');
+						if(!check_arr){//只要有一个没选中则全选不选中
+							all_check.prop('checked',false);
+							return ;
+						}else{
+							all_check.prop('checked',true);
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+page{
+  background-color: #edf2f6;
+}
+.container {
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.all_check_wrap {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.all_check_wrap .checkbox_text {
+  margin-right: 10rpx;
+  font-size: 32rpx;
+  vertical-align: middle;
+}
+
+
+.item_wrap {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  background-color: #fff;
+  margin-right: 20rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.item_wrap image {
+  width: 100%;
+  height: 100%;
+}
+
+.item_wrap checkbox {
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+}

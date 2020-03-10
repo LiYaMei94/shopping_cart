@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="all_check_wrap">
+    <text for="all_check" class="checkbox_text">全选</text>
+    <checkbox-group bindchange='all_check_change'>
+      <checkbox checked="{{all_check_arr[0]}}"></checkbox>
+    </checkbox-group>
+  </view>
+  <view class="image_check_wrap">
+    <checkbox-group bindchange='item_check_change' wx:for="{{check_arr}}" wx:for-index="index" wx:for-item="item" wx:key='index' data-index="{{index}}" class="item_wrap">
+      <image mode='aspectFit' src="../../images/dingdong1.jpg" alt=""></image>
+      <checkbox data-index="{{index}}" checked="{{item}}"></checkbox>
+    </checkbox-group>
+
+  </view>
+</view>
